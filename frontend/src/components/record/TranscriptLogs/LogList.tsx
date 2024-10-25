@@ -1,15 +1,13 @@
-import React from 'react';
-import LogListItem from './LogListItem';
+import { useTranscript } from "../../../hooks/useTranscript";
+import LogListItem from "./LogListItem";
 
-type LogListProps = {
-  logs: Array<{ timestamp: string; content: string }>;
-};
+const LogList = () => {
+  const { logs, logType } = useTranscript();
 
-const LogList: React.FC<LogListProps> = ({ logs }) => {
   return (
     <div className="overflow-y-auto grow">
-      {logs.map((log, index) => (
-        <LogListItem key={index} timestamp={log.timestamp} content={log.content} />
+      {logs[logType].map((log, index) => (
+        <LogListItem key={index} timestamp={log.timestamp} content={log.log} />
       ))}
     </div>
   );

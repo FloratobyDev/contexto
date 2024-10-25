@@ -1,7 +1,11 @@
+import QAList from "../components/qa/QAList";
+
 const QuestionAndAnswer = () => {
   return (
-    <div>QuestionAndAnswer</div>
-  )
-}
+    <div>
+      <QAList />
+    </div>
+  );
+};
 
-export default QuestionAndAnswer
+export default QuestionAndAnswer;

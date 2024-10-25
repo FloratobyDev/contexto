@@ -1,16 +1,17 @@
 import React from "react";
 import classNames from "classnames";
+import { LogTypes } from "../consts";
 
 
 interface TabsProps {
-  tabs: string[];
+  tabs: LogTypes[];
   activeTab: string;
-  onTabChange: (tab: string) => void;
+  onTabChange: (tab: LogTypes) => void;
 }
 
 const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabChange }) => {
 
-  const handleTabClick = (tab: string) => {
+  const handleTabClick = (tab: LogTypes) => {
     onTabChange(tab);
   };
 

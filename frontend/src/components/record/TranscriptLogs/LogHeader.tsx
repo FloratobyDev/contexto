@@ -1,10 +1,11 @@
 import Subtitle from "../../typography/Subtitle";
 import Tabs from "../../Tabs";
+import { LogTypes } from "../../../consts";
 
 type LogHeaderProps = {
-  onTabChange: (value: string) => void;
+  onTabChange: (value: LogTypes) => void;
   selectedTab: string;
-  tabs: string[];
+  tabs: LogTypes[];
 };
 
 const LogHeader = ({ onTabChange, selectedTab, tabs }: LogHeaderProps) => {

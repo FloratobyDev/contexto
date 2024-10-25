@@ -16,6 +16,7 @@ export default {
           600: "#2563eb",
         },
         white: "#ffffff",
+        'faded-gray': '#343441',
       },
       fontSize: {
         xs: ["0.75rem", "1rem"], // For Edit/Remove links
