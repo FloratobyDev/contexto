@@ -4,12 +4,12 @@ import TranscriptProvider from "../contexts/TranscriptContext";
 
 const Record = () => {
   return (
-    <div className="flex flex-col h-full">
-      <TranscriptProvider>
+    <TranscriptProvider>
+      <div className="flex flex-col h-full gap-y-6 pb-8">
         <TranscriptOutput />
         <TranscriptLogs />
-      </TranscriptProvider>
-    </div>
+      </div>
+    </TranscriptProvider>
   );
 };
 

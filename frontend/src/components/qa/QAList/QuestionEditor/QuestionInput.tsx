@@ -1,4 +1,5 @@
-import BodyText from "../../../typography/BodyText";
+import Button from "../../../Button";
+import Paragraph from "../../../typography/Paragraph";
 
 // QuestionInput Component
 type QuestionInputProps = {
@@ -13,16 +14,18 @@ const QuestionInput = ({
   addQuestion,
 }: QuestionInputProps) => (
   <div className="text-left h-full flex-1 p-4">
-    <BodyText>Question/s</BodyText>
-    <div className="shrink-0 flex items-center gap-x-4 mt-2">
+    <Paragraph bold>Question/s</Paragraph>
+    <div className="flex gap-x-2 mt-2">
       <input
         type="text"
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
         placeholder="Type question here..."
-        className="w-full mt-1 p-2 bg-gray-700 text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="text-input-paragraph placeholder:text-input-paragraph w-full px-4 py-3 bg-transparent text-gray-400 border border-faded-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
       />
-      <button onClick={addQuestion}>Add</button>
+      <Button variant="secondary" onClick={addQuestion}>
+        Add
+      </Button>
     </div>
   </div>
 );

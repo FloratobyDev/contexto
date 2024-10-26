@@ -61,19 +61,35 @@ const QuestionEditor = ({
 
   return (
     <Modal isOpen={open}>
-      <div className="bg-gray-800 rounded-lg shadow-lg w-full max-w-[37%]">
+      <div className="bg-[#25252E] rounded-lg shadow-lg w-full max-w-[37%]">
         {/* Header */}
         <div className="flex justify-between items-center py-3 px-4 border-b border-b-faded-gray">
           <Subtitle>New Question</Subtitle>
-          <button
-            className="text-gray-300 hover:text-gray-100"
+          {/* Close Button */}
+          <Button
+            variant="link"
             onClick={() => {
               handleModalOpen();
               setOpen(false);
             }}
           >
-            &times;
-          </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width={16}
+              height={16}
+              color={"#d0d0e4"}
+              fill={"none"}
+            >
+              <path
+                d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Button>
         </div>
         {/* Modal Content */}
         <div className="h-80 flex gap-x-4 w-full overflow-hidden">
@@ -92,11 +108,18 @@ const QuestionEditor = ({
               setEditingInfo={setEditingInfo}
             />
           </div>
+          <div className="w-px h-full bg-faded-gray" />
           <AnswerInput answer={answer} setAnswer={setAnswer} />
         </div>
         {/* Add Question Button */}
-        <div className="flex justify-end p-4">
-          <Button onClick={handleSubmit}>Add Question</Button>
+        <div className="flex justify-end p-4 border-t border-t-faded-gray">
+          <p className=" text-sub-paragraph italic font-normal text-gray-400 text-left flex-1 mr-4">
+            Tip: The more variations you add, the easier it is for the bot to
+            identify a question. Add as much as you can.
+          </p>
+          <Button variant="primary" onClick={handleSubmit}>
+            Add Question
+          </Button>
         </div>
       </div>
     </Modal>

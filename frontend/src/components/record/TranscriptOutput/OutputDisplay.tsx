@@ -1,6 +1,6 @@
 import React from "react";
-import BodyText from "../../typography/BodyText";
 import { useTranscript } from "../../../hooks/useTranscript";
+import Paragraph from "../../typography/Paragraph";
 
 type OutputDisplayProps = {
   progress: number;
@@ -14,21 +14,21 @@ const OutputDisplay: React.FC<OutputDisplayProps> = ({
   const { transcript } = useTranscript();
 
   return (
-    <div className="bg-[#25252E] p-4 rounded-lg text-white">
+    <div className="bg-[#25252E] py-3 px-4 rounded-lg text-white border border-[#2B2B34]">
       {!transcript.length && (
-        <div className="flex justify-center items-center min-h-40">
-          <BodyText>No transcript available</BodyText>
+        <div className="flex justify-center items-center min-h-72 overflow-auto">
+          <Paragraph muted>No transcript available.</Paragraph>
         </div>
       )}
-      {transcript.length > 0 && 
-      <div className="min-h-40">
-        <BodyText>{transcript}</BodyText>
-      </div>
-      }
+      {transcript.length > 0 && (
+        <div className="h-72 overflow-auto">
+          <Paragraph>{transcript}</Paragraph>
+        </div>
+      )}
       <div className="flex justify-end text-gray-400 mt-2">
-        <span>
-          {progress} / {totalWords}
-        </span>
+        <Paragraph muted>
+          {progress}/{totalWords}
+        </Paragraph>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ type BodyTextProps = {
 
 const BodyText: React.FC<BodyTextProps> = ({ children, className }) => {
   return (
-    <p className={classNames("text-base font-normal text-gray-400 text-balance", className)}>
+    <p className={classNames("text-base font-normal text-gray-400 text-pretty", className)}>
       {children}
     </p>
   );

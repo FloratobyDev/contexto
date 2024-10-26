@@ -1,4 +1,4 @@
-import BodyText from "../../../typography/BodyText";
+import Paragraph from "../../../typography/Paragraph";
 import EditableQuestion from "./EditableQuestion";
 
 // QuestionList Component
@@ -20,12 +20,12 @@ const QuestionList = ({
   setEditingInfo,
 }: QuestionListProps) => {
   return (
-    <div className="grow pt-2 pb-6 pr-1 overflow-auto h-56">
+    <div className="grow pb-6 px-4 overflow-auto h-56">
       {qList.length > 0 &&
         qList.map((q, index) => (
           <div
             key={index}
-            className="flex justify-between text-left items-center mt-2 p-2 text-gray-300 rounded-lg"
+            className="flex justify-between text-left items-baseline mt-2 text-gray-300 rounded-lg"
           >
             <EditableQuestion
               isEditing={isEditing}
@@ -35,10 +35,10 @@ const QuestionList = ({
             />
 
             {isEditing && editingInfo.index !== index && (
-              <BodyText>{q}</BodyText>
+              <Paragraph>{q}</Paragraph>
             )}
 
-            {!isEditing && <BodyText>{q}</BodyText>}
+            {!isEditing && <Paragraph>{q}</Paragraph>}
 
             <div className="flex items-center gap-x-1">
               {/* Edit Button */}

@@ -10,6 +10,7 @@ interface QADisplayListProps {
 
 const QADisplayList = ({ qaItems, setQAItems }: QADisplayListProps) => {
   const [editInfo, setEditInfo] = useState<QAItem | null>(null);
+  
   const [open, setOpen] = useState(false);
 
   return (
@@ -30,7 +31,7 @@ const QADisplayList = ({ qaItems, setQAItems }: QADisplayListProps) => {
         setOpen={setOpen}
         open={open}
       />
-      <div className="space-y-4">
+      <div className="flex flex-col gap-y-2 pb-8">
         {qaItems.map((item, index) => (
           <QADisplayItem
             key={index}

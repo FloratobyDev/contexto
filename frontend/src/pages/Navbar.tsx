@@ -1,9 +1,10 @@
-import classNames from "classnames";
 import { useMemo, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState(location.pathname);
 
   const links = useMemo(
@@ -15,30 +16,36 @@ const Navbar = () => {
   );
 
   const handleActiveLink = (path: string) => {
-    return () => {
-      setActiveLink(path);
-    };
+    setActiveLink(path);
   };
+
+  console.log("activeLink", activeLink);
 
   return (
     <nav className="flex justify-between items-center py-8 text-white">
-      <h1>CTV</h1>
+      <h1 className="text-paragraph font-bold px-2 py-1 rounded-lg text-primary">CTX</h1>
       {
-        <ul className="flex gap-x-4">
+        <ul className="flex">
           {links.map(({ to, label }) => {
-            const linkClasses = classNames("cursor-pointer", {
-              underline: activeLink === to,
-            });
-
             return (
               <li key={to}>
-                <Link
+                <Button
+                  active={activeLink === to}
+                  variant="link"
+                  onClick={() => {
+                    handleActiveLink(to);
+                    navigate(to);
+                  }}
+                >
+                  {label}
+                </Button>
+                {/* <Link
                   className={linkClasses}
                   onClick={handleActiveLink(to)}
                   to={to}
                 >
                   {label}
-                </Link>
+                </Link> */}
               </li>
             );
           })}

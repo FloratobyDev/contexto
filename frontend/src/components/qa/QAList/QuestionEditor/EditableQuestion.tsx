@@ -52,7 +52,8 @@ const EditableQuestion = ({
             });
           }}
           placeholder="Type question here..."
-          className="w-full p-1 bg-gray-700 text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none overflow-hidden"
+            className="text-paragraph placeholder:text-input-paragraph w-full p-1 bg-transparent text-gray-300 placeholder:text-gray-400 border border-faded-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary overflow-hidden resize-none"
+          // className="w-full p-1 bg-gray-700 text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none overflow-hidden"
           rows={1}
         />
       )}

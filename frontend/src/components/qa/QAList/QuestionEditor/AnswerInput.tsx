@@ -1,4 +1,4 @@
-import BodyText from "../../../typography/BodyText";
+import Paragraph from "../../../typography/Paragraph";
 
 // AnswerInput Component
 type AnswerInputProps = {
@@ -6,17 +6,18 @@ type AnswerInputProps = {
   setAnswer: (value: string) => void;
 };
 
-const AnswerInput = ({ answer, setAnswer }: AnswerInputProps) => (
-  <div className="mb-4 flex-1 p-4 text-left">
-    <BodyText>Answer</BodyText>
-    <textarea
-      value={answer}
-      onChange={(e) => setAnswer(e.target.value)}
-      placeholder="Type answer here..."
-      className="w-full mt-1 p-2 bg-gray-700 text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-      rows={4}
-    />
-  </div>
-);
-
+const AnswerInput = ({ answer, setAnswer }: AnswerInputProps) => {
+  return (
+    <div className="flex-1 p-4 text-left">
+      <Paragraph bold>Answer</Paragraph>
+      <textarea
+        value={answer}
+        onChange={(e) => setAnswer(e.target.value)}
+        placeholder="Type answer here..."
+        className="text-paragraph placeholder:text-input-paragraph w-full px-4 py-3 bg-transparent text-gray-300 placeholder:text-gray-400 border border-faded-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none mt-2"
+        rows={9}
+      />
+    </div>
+  );
+};
 export default AnswerInput;

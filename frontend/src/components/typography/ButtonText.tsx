@@ -6,14 +6,10 @@ type ButtonTextProps = {
   className?: string;
 };
 
-const ButtonText: React.FC<ButtonTextProps> = ({ children, className }) => {
+const ButtonText = ({ children, className }: ButtonTextProps) => {
+
   return (
-    <button
-      className={classNames(
-        "text-sm font-bold text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded",
-        className
-      )}
-    >
+    <button className={classNames("text-button-paragraph", className)}>
       {children}
     </button>
   );

@@ -6,9 +6,9 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <main className="w-[36%] mx-auto min-h-screen">
+    <main className="w-[38%] mx-auto min-h-screen">
       <Navbar />
-      <article className="h-[calc(100vh-88px)]">
+      <article className="h-[calc(100vh-102px)]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/record" element={<Record />} />

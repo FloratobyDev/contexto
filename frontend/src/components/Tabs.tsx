@@ -1,7 +1,6 @@
 import React from "react";
-import classNames from "classnames";
 import { LogTypes } from "../consts";
-
+import Button from "./Button";
 
 interface TabsProps {
   tabs: LogTypes[];
@@ -10,7 +9,6 @@ interface TabsProps {
 }
 
 const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabChange }) => {
-
   const handleTabClick = (tab: LogTypes) => {
     onTabChange(tab);
   };
@@ -18,18 +16,16 @@ const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabChange }) => {
   return (
     <nav className="flex">
       {tabs.map((tab) => {
-        const buttonClass = classNames("px-4 py-2", {
-          "bg-blue-500": tab === activeTab,
-          "hover:bg-blue-600": tab !== activeTab,
-        });
         return (
-          <button
-            className={buttonClass}
+          <Button
             key={tab}
-            onClick={() => handleTabClick(tab)}
+            variant={tab === activeTab ? "primary" : "link"}
+            onClick={() => {
+              handleTabClick(tab);
+            }}
           >
             {tab}
-          </button>
+          </Button>
         );
       })}
     </nav>
